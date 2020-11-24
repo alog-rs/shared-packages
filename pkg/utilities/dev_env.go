@@ -61,3 +61,14 @@ func IsDev() bool {
 func IsProd() bool {
 	return lookupEnv() == EnvProd
 }
+
+// Version returns the running version of the alog.rs service
+func Version() string {
+	result, ok := os.LookupEnv("VERSION")
+
+	if !ok {
+		return "unknown"
+	}
+
+	return result
+}
