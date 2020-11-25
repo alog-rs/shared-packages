@@ -92,33 +92,3 @@ func TestIsProd(t *testing.T) {
 		})
 	}
 }
-
-func TestVersion(t *testing.T) {
-	mockVersion := "v0.0.1"
-	cases := []struct {
-		name           string
-		versionPresent bool
-		expected       string
-	}{
-		{"version present", true, mockVersion},
-		{"version missing", false, "unknown"},
-	}
-
-	defer os.Unsetenv("VERSION")
-
-	for _, tc := range cases {
-		t.Run(tc.name, func(t *testing.T) {
-			os.Unsetenv("VERSION")
-
-			if tc.versionPresent {
-				os.Setenv("VERSION", mockVersion)
-			}
-
-			result := utilities.Version()
-
-			if result != tc.expected {
-				t.Errorf("got %s wanted %s", result, tc.expected)
-			}
-		})
-	}
-}
