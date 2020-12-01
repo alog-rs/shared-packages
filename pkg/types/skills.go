@@ -42,18 +42,16 @@ const (
 )
 
 // GetVirtualLevel gets the virtual level for the given XP
-func (s Skill) GetVirtualLevel(XP uint64) uint32 {
+func (s Skill) GetVirtualLevel(XP int64) int {
 	table := constants.StandardXPTable
 
 	if s.IsEliteSkill() {
 		table = constants.EliteXPTable
 	}
 
-	i := sort.Search(len(table), func(i int) bool {
+	return sort.Search(len(table), func(i int) bool {
 		return table[i] > XP
 	})
-
-	return uint32(i)
 }
 
 // IsStandardSkill determines if the provided skill is a standard skill

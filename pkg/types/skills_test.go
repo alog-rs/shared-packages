@@ -53,8 +53,8 @@ func TestGetVirtualLevel(t *testing.T) {
 	cases := []struct {
 		name     string
 		skill    types.Skill
-		XP       uint64
-		expected uint32
+		XP       int64
+		expected int
 	}{
 		{"standard skill 0 xp", types.Attack, 0, 1},
 		{"elite skill 0 xp", types.Invention, 0, 1},

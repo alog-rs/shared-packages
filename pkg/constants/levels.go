@@ -1,7 +1,7 @@
 package constants
 
 // StandardXPTable represents the standard skill XP curve
-var StandardXPTable = []uint64{
+var StandardXPTable = []int64{
 	0,
 	83,
 	174,
@@ -131,7 +131,7 @@ var StandardXPTable = []uint64{
 }
 
 // EliteXPTable represents the elite skill XP curve
-var EliteXPTable = []uint64{
+var EliteXPTable = []int64{
 	0,
 	830,
 	1861,
